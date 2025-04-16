@@ -15,6 +15,6 @@ with DAG("async_operator", schedule_interval="@daily", default_args=default_args
         task_id="sensor",
         target_time=(utcnow() + datetime.timedelta(seconds=10)).time(),
     )
-    task1 = BashSensor(task_id="sleep_10", bash_command="sleep 10")
+    task1 = BashSensor(task_id="sleep_20", bash_command="sleep 20")
     complete = DummyOperator(task_id="complete")
     sensor >> task1 >> complete
